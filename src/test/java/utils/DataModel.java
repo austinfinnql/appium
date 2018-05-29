@@ -3,14 +3,11 @@ package utils;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 public class DataModel {
-    public Node[] node;
+    public List<Node> node;
 }
 
-class Node{
-    private String name;
-    private String type;
-    private String identifier;
-}

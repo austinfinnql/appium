@@ -28,6 +28,7 @@ public class DriverCreator  {
                 .withTimeout(10, TimeUnit.SECONDS)
                 .pollingEvery(1, TimeUnit.SECONDS)
                 .ignoring(NoSuchElementException.class);
+
         return driver;
     }
 }

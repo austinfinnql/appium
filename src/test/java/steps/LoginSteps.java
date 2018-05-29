@@ -8,7 +8,7 @@ import cucumber.api.java.en.When;
 public class LoginSteps {
 
 
-    @When("^User attempts to change passcode$")
+    @When("^User attempts to change password$")
     public void userAttemptsToChangePassword(){
 
         // tap on more button
@@ -21,7 +21,7 @@ public class LoginSteps {
 
     }
 
-    @Then("^Passcode is updated successfully$")
+    @Then("^Password is updated successfully$")
     public void passwordIsUpdatedSuccessfully(){
 
         //validate user is back on App settings screen
@@ -29,7 +29,7 @@ public class LoginSteps {
 
     }
 
-    @And("^User is able to login with the new passcode$")
+    @And("^User is able to login with the new password$")
     public void UserIsAbleToLoginWithTheNewPassword(){
         //tap on more button
 

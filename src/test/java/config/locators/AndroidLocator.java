@@ -1,54 +1,37 @@
 package config.locators;
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
 import config.DriverCreator;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 
+public class AndroidLocator  implements LocatorInterface{
 
-import java.sql.Driver;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
-
-
-public class AndroidLocator  {
-
-    public static AppiumDriver driver = null;
-    AndroidLocator(){
-        driver=DriverCreator.getDriver();
+    public static AndroidDriver driver = null;
+    public AndroidLocator(){
+        driver=(AndroidDriver) DriverCreator.getDriver();
     }
 
-    public AndroidElement getLocator(final String strategy, final String element){
-        this.driver=DriverCreator.getDriver();
-
-        Wait wait= new FluentWait(driver)
-                .withTimeout(30, TimeUnit.SECONDS)
-                .pollingEvery(15,TimeUnit.SECONDS)
-                .ignoring(NoSuchElementException.class);
-        //final MobileBy mobileBy=new MobileBy.ByAndroidUIAutomator(element);
-
+    @Override
+    public MobileElement getLocator(final String strategy, final String element){
         AndroidElement e=null;
         switch (strategy) {
-            case ("id"):
-                e = initDriver(this.driver, new MobileBy.ByAndroidUIAutomator
-                        ("new UiSelector().resourceId(\"au.com.qantas.qantas:id/" + element + "\")"));
+            case "id":
+                e= ((AndroidElement) driver.findElement(MobileBy.AndroidUIAutomator(element)));
                 break;
+            default:
+                throw new IllegalArgumentException("check type of the identifier");
         }
-
-
         return e;
     }
 
-    private AndroidElement initDriver(AppiumDriver driver, MobileBy.ByAndroidUIAutomator byAndroidUIAutomator) {
-    }
 
-    public AndroidElement initDriverBy(AndroidDriver driver, MobileBy byType){
-        Wait wait = new FluentWait(driver)
+
+    /* public AndroidElement initDriverBy(AndroidDriver driver, MobileBy byType){
+       Wait wait = new FluentWait(driver)
                 .withTimeout(10, TimeUnit.SECONDS)
                 .pollingEvery(1, TimeUnit.SECONDS)
                 .ignoring(NoSuchElementException.class);
@@ -60,6 +43,6 @@ public class AndroidLocator  {
         });
         wait.until(ExpectedConditions.elementToBeClickable(byType));
         return element;
-    }
+    }*/
 
 }
