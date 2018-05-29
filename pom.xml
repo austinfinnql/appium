@@ -7,7 +7,10 @@
     <groupId>testpr</groupId>
     <artifactId>testdev</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <properties>
+        <OSType>android</OSType>
+        <local>yes</local>
+    </properties>
     <build>
         <plugins>
             <plugin>
@@ -15,6 +18,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20.1</version>
                 <configuration>
+                    <systemPropertyVariables>
+                        <MobilePlatform>${OSType}</MobilePlatform>
+                        <TestEnv>${local}</TestEnv>
+                    </systemPropertyVariables>
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
@@ -73,7 +80,7 @@
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>5.0.4</version>
+            <version>6.0.0</version>
         </dependency>
 
         <dependency>
