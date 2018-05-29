@@ -1,53 +1,35 @@
 package config;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
-import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.ios.IOSElement;
 import io.appium.java_client.remote.MobileCapabilityType;
-import jdk.nashorn.internal.parser.JSONParser;
-import org.json.simple.JSONObject;
-import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
-import java.lang.reflect.Array;
-import java.io.FileReader;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Iterator;
-import java.util.Map;
 
 public class AppiumController {
 
-    public static IOSDriver iOSDriver;
+    public static String PLATFORM="android";
 
     @BeforeTest
     public static void setup() throws MalformedURLException, InterruptedException {
 
         DesiredCapabilities dc = new DesiredCapabilities();
-        String OSType=System.getenv("MobilePlatform").toLowerCase();
+        PLATFORM=System.getenv("MobilePlatform").toLowerCase();
 
-        //iOSDriver = new IOSDriver<IOSElement>(new URL("http://localhost:4723/wd/hub"), dc);
-
-        switch(OSType) {
+        switch(PLATFORM) {
             case "android":
-                new DriverCreator().setAndroidDriver(getCapabilities(dc, OSType));
+                new DriverCreator().setAndroidDriver(getCapabilities(dc));
                 break;
             case "ios":
-                new DriverCreator().setIOSDriver(getCapabilities(dc, OSType));
+                new DriverCreator().setIOSDriver(getCapabilities(dc));
                 break;
             default:
                 throw new IllegalArgumentException("Please set 'ios' or 'android' as OS Type");
         }
-
-
     }
 
 
-    public static DesiredCapabilities getCapabilities(DesiredCapabilities dc, String osType){
-        switch(osType){
+    public static DesiredCapabilities getCapabilities(DesiredCapabilities dc){
+        switch(PLATFORM){
             case "android":
                 dc.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UIAUTOMATOR2");
                 break;
@@ -68,7 +50,6 @@ public class AppiumController {
 
         }
         return dc;
-
     }
 
 

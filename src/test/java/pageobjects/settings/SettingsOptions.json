@@ -1,0 +1,14 @@
+{
+  "items": [
+    {
+      "name": "options",
+      "type": "id",
+      "identifier": "com.qantas.fs.stub:id/txt_text"
+    },
+    {
+      "name": "changepassword",
+      "type": "accessibility",
+      "identifier": "Change passcode"
+    }
+  ]
+}

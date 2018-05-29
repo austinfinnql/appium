@@ -1,0 +1,9 @@
+{
+  "items": [
+    {
+      "name": "yesonalert",
+      "type": "id",
+      "identifier": "com.qantas.fs.stub:id/btn_positive"
+    }
+  ]
+}
