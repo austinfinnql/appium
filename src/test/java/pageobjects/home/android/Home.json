@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "name": "home",
+      "type": "id",
+      "identifier": "com.qantas.fs.stub:id/btn_home"
+    },
+    {
+      "name": "more",
+      "type": "id",
+      "identifier": "com.qantas.fs.stub:id/btn_more"
+    },
+    {
+      "name":"greeting",
+      "type":"id",
+      "identifier":"com.qantas.fs.stub:id/txt_greeting"
+    }
+  ]
+}
