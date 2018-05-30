@@ -1,0 +1,120 @@
+{
+  "items": [
+    {
+      "name": "membernumber",
+      "type": "id",
+      "identifier": "com.qantas.fs.stub:id/txt_member_no"
+    },
+    {
+      "name": "membernumber_acc",
+      "type": "accessibility",
+      "identifier": "Enter your Qantas Frequent Flier membership number"
+    },
+    {
+      "name": "lastname",
+      "type": "id",
+      "identifier": "com.qantas.fs.stub:id/txt_last_name"
+    },
+    {
+      "name": "lastname_acc",
+      "type": "accessibility",
+      "identifier": "Enter your last name"
+    },
+    {
+      "name": "pin",
+      "type": "id",
+      "identifier": "com.qantas.fs.stub:id/txt_pin"
+    },
+    {
+      "name": "pin_acc",
+      "type": "accessibility",
+      "identifier": "Enter your 4 digit pin"
+    },
+    {
+      "name": "loginbtn",
+      "type": "id",
+      "identifier": "com.qantas.fs.stub:id/btn_log_in"
+    },
+    {
+      "name": "forgot",
+      "type": "id",
+      "identifier": "com.qantas.fs.stub:id/btn_forgot"
+    },
+    {
+      "name": "forgot_acc",
+      "type": "accessibility",
+      "identifier": "Forgot your pin button"
+    },
+    {
+      "name": "join",
+      "type": "id",
+      "identifier": "com.qantas.fs.stub:id/view_join_now"
+
+    },
+    {
+      "name":"TAC",
+      "":"id",
+      "":"com.qantas.fs.stub:id/btn_agree"
+    },
+    {
+      "name":"fingerprintno",
+      "type":"id",
+      "identifier":"com.qantas.fs.stub:id/btn_no_fingerprint"
+    },
+    {
+      "name":"fingerprintyes",
+      "type":"id",
+      "identifier":"com.qantas.fs.stub:id/btn_yes_fingerprint"
+    },
+    {
+      "name":"num1",
+      "type":"id",
+      "identifier":"com.qantas.fs.stub:id/button_1"
+    },
+    {
+      "name":"num2",
+      "type":"id",
+      "identifier":"com.qantas.fs.stub:id/button_2"
+    },
+    {
+      "name":"num3",
+      "type":"id",
+      "identifier":"com.qantas.fs.stub:id/button_3"
+    },
+    {
+      "name":"num4",
+      "type":"id",
+      "identifier":"com.qantas.fs.stub:id/button_4"
+    },
+    {
+      "name":"num5",
+      "type":"id",
+      "identifier":"com.qantas.fs.stub:id/button_5"
+    },
+    {
+      "name":"num6",
+      "type":"id",
+      "identifier":"com.qantas.fs.stub:id/button_6"
+    },
+    {
+      "name":"num7",
+      "type":"id",
+      "identifier":"com.qantas.fs.stub:id/button_7"
+    },
+    {
+      "name":"num8",
+      "type":"id",
+      "identifier":"com.qantas.fs.stub:id/button_8"
+    },
+    {
+      "name":"num9",
+      "type":"id",
+      "identifier":"com.qantas.fs.stub:id/button_9"
+    },
+    {
+      "name":"num0",
+      "type":"id",
+      "identifier":"com.qantas.fs.stub:id/button_0"
+    }
+  ]
+}

@@ -3,6 +3,6 @@
     @LoginTests
     Scenario: update-passcode
       Given User is able to login successfully from OnBoarding
-      When User attempts to change password
-      Then Password is updated successfully
-      And User is able to login with the new password
+      When User attempts to change passcode
+      Then Passcode is updated successfully
+      And User is able to login with the new passcode

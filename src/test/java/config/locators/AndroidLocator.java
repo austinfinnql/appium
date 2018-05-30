@@ -1,16 +1,18 @@
 package config.locators;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
 import config.DriverCreator;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
+
+import java.util.List;
 
 public class AndroidLocator  implements LocatorInterface{
 
-    public static AndroidDriver driver = null;
+    public static AndroidDriver<AndroidElement> driver = null;
     public AndroidLocator(){
         driver=(AndroidDriver) DriverCreator.getDriver();
     }
@@ -22,13 +24,30 @@ public class AndroidLocator  implements LocatorInterface{
             case "id":
                 e= ((AndroidElement) driver.findElement(MobileBy.AndroidUIAutomator(element)));
                 break;
+            case "accessibility":
+                e=((AndroidElement) driver.findElement(MobileBy.AccessibilityId(element)));
             default:
                 throw new IllegalArgumentException("check type of the identifier");
         }
         return e;
     }
 
+    @Override
+    public List getLocators(final String strategy, final String element){
+        List<AndroidElement> e=null;
+        switch (strategy) {
+            case "id":
+                e= (List<AndroidElement>) driver.findElements(MobileBy.AndroidUIAutomator(element));
+                break;
+            default:
+                throw new IllegalArgumentException("check type of the identifier");
+        }
+        return e;
+    }
 
+    public void sendKeysWithKeyBoard(AndroidKey keyCode) {
+        driver.pressKey(new KeyEvent(keyCode));
+    }
 
     /* public AndroidElement initDriverBy(AndroidDriver driver, MobileBy byType){
        Wait wait = new FluentWait(driver)
