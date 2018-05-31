@@ -1,7 +1,26 @@
 # Automated Regression tests for Qantas Money
-* About the Project: This is an Appium based autoamtion proejct to test theQantas Money app
-This
-* Appium Setup IOS devices: To get Appium to work with your devices we need to use the WebdriverAgent project. The project installs the Webdriver agent onto the device which enabled the JSONWire protocol to work with IOS devices. The same method can be followed for Simualtors as well. A couple of tutorials to help setupa nd understand the concept better can be found here:
+* About the Project: 
+    1) This is an Appium based autoamtion proejct to test Qantas Money app.
+    2) The is currently being developed to be run locally and uses CucumberRunner for execution of the tests.
+    
+* stack:
+    1) Prerequisite 
+       ------------
+       JDK 1.8
+        
+       Maven 3.3.9
+       
+       NPM 5.3.0
+       
+       Appium 1.7.0 (Java_client: 6.0.0)
+       
+       XCode 9 (for IOS)
+       
+       Android Studio 2.* or latest
+       
+* Appium Setup IOS devices: 
+    
+  To get Appium to work with your devices we need to use the WebdriverAgent project. The project installs the Webdriver agent onto the device which enabled the JSONWire protocol to work with IOS devices. The same method can be followed for Simualtors as well. A couple of tutorials to help setupa nd understand the concept better can be found here:
   
   1) https://www.mutuallyhuman.com/blog/2017/04/20/webdriveragent-getting-started-with-automated-ios-testing
   2) https://github.com/facebook/WebDriverAgent/wiki/Starting-WebDriverAgent
@@ -21,4 +40,15 @@ This
 |       +-- resource                    # the feature files are to be placed in this folder
 ````
    
-  
+Running your tests in local
+---------------------------
+
+To start appium server from terminal:
+
+iOS:
+appium --pre-launch --platform-name ios --platform-version xxx --udid xxxx --app ~/xxx.app --device-name xxx
+
+Android:
+appium --pre-launch --platform-name android --platform-version xxx--device-name xxx     --app ~/xxx.apk
+
+Details of server arguments can be found at https://appium.io/slate/en/master/#appium-server-arguments.  
