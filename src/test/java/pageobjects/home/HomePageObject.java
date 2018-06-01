@@ -8,16 +8,17 @@ import utils.JsonUtils;
 import utils.Node;
 
 import java.io.FileNotFoundException;
+import java.util.Collection;
 
 public class HomePageObject {
 
     LocatorInterface locator=null;
-    DataModel dataModel=null;
+    Collection<Node> dataModel=null;
     JsonUtils jsonUtils=null;
 
-    HomePageObject(){
-        try {
+    public HomePageObject(){
 
+            jsonUtils= new JsonUtils();
             if(System.getProperty("MobilePlatform").toLowerCase().equals("android")){
                 locator=new AndroidLocator();
                 dataModel=jsonUtils.getDataModel("login/android/Home.json");
@@ -25,10 +26,6 @@ public class HomePageObject {
                 locator=new IOSLocator();
                 dataModel=jsonUtils.getDataModel("login/ios/Home.json");
             }
-            jsonUtils= new JsonUtils();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 
     public void tapOnMoreButton(){

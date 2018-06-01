@@ -1,5 +1,4 @@
-{
-  "items": [
+[
     {
       "name": "membernumber",
       "type": "id",
@@ -116,5 +115,4 @@
       "type":"id",
       "identifier":"com.qantas.fs.stub:id/button_0"
     }
-  ]
-}
+]

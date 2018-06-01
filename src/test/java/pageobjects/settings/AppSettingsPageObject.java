@@ -9,18 +9,18 @@ import utils.JsonUtils;
 import utils.Node;
 
 import java.io.FileNotFoundException;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
 public class AppSettingsPageObject {
 
     LocatorInterface locator=null;
-    DataModel dataModel=null;
+    Collection<Node> dataModel=null;
     JsonUtils jsonUtils=null;
 
-    AppSettingsPageObject(){
-        try {
-
+    public AppSettingsPageObject(){
+            jsonUtils= new JsonUtils();
             if(System.getProperty("MobilePlatform").toLowerCase().equals("android")){
                 locator=new AndroidLocator();
                 dataModel=jsonUtils.getDataModel("login/android/SettingsOptions.json");
@@ -28,10 +28,7 @@ public class AppSettingsPageObject {
                 locator=new IOSLocator();
                 dataModel=jsonUtils.getDataModel("login/ios/SettingsOptions.json");
             }
-            jsonUtils= new JsonUtils();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+
     }
 
     public void tapChangePasscodeOption(){

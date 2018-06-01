@@ -1,34 +1,30 @@
 package config;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.ios.IOSDriver;
-import org.openqa.selenium.NoSuchElementException;
+import io.appium.java_client.ios.IOSElement;
+import lombok.Getter;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 
-import java.util.concurrent.TimeUnit;
+import java.net.MalformedURLException;
+import java.net.URL;
 
+@Getter
 public class DriverCreator  {
 
-    public static AppiumDriver driver=null;
-    public static Wait wait=null;
+    public static AndroidDriver<AndroidElement> androidDriver=null;
+    public static IOSDriver<IOSElement> iosDriver=null;
 
-    public void setAndroidDriver(DesiredCapabilities dc){
-        driver=new AndroidDriver(dc);
-    }
-    public void setIOSDriver(DesiredCapabilities dc){
-        driver=new IOSDriver(dc);
+    public void setAndroidDriver(DesiredCapabilities dc) throws MalformedURLException {
+
+        androidDriver=new AndroidDriver<AndroidElement>(new URL("http://localhost:4723/wd/hub"),dc);
     }
 
-    public static AppiumDriver getDriver(){
-        wait = new FluentWait(driver)
-                .withTimeout(10, TimeUnit.SECONDS)
-                .pollingEvery(1, TimeUnit.SECONDS)
-                .ignoring(NoSuchElementException.class);
-
-        return driver;
+    public void setIOSDriver(DesiredCapabilities dc)throws MalformedURLException{
+        iosDriver=new IOSDriver<IOSElement>(new URL("http://localhost:4723/wd/hub"),dc);
     }
 }

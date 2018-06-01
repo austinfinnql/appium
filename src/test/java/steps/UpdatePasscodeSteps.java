@@ -1,46 +1,29 @@
 package steps;
 
-import com.google.inject.Inject;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import io.appium.java_client.android.nativekey.AndroidKey;
+
+import cucumber.api.java.en.*;
 import org.testng.Assert;
-import pageobjects.common.Android.AndroidActions;
-import pageobjects.common.CommonFactory;
-import pageobjects.home.HomePageObject;
-import pageobjects.login.LoginPageObject;
-import pageobjects.settings.AppSettingsPageObject;
-import pageobjects.settings.SettingsPageObject;;
 
-public class UpdatePasscodeSteps {
-
-    @Inject private LoginPageObject loginPageObject;
-    @Inject private HomePageObject homePageObject;
-    @Inject private SettingsPageObject settingsPageObject;
-    @Inject private AppSettingsPageObject appSettingsPageObject;
-    @Inject private CommonFactory commonFactory;
-
-
+public class UpdatePasscodeSteps extends PageObjectDI{
 
     @When("^User attempts to change passcode$")
-    public void userAttemptsToChangePasscode(){
+    public void userAttemptsToChangePasscode() throws Throwable {
 
         // tap on more button
-        homePageObject.tapOnMoreButton();
+        PageObjectDI.homePageObject.tapOnMoreButton();
         //select settings
-        settingsPageObject.tapOnSettingsOption();
+        PageObjectDI.settingsPageObject.tapOnSettingsOption();
         //select "change passcode"
-        appSettingsPageObject.tapChangePasscodeOption();
+        PageObjectDI.appSettingsPageObject.tapChangePasscodeOption();
 
         //change passcode
 
-        AndroidKey[] pinArr={AndroidKey.DIGIT_6,
+/*        AndroidKey[] pinArr={AndroidKey.DIGIT_6,
                 AndroidKey.DIGIT_5,
                 AndroidKey.DIGIT_4,
-                AndroidKey.DIGIT_5};
-        loginPageObject.setPin(pinArr);
+                AndroidKey.DIGIT_5};*/
+        int[] pinArr={6,5,4,5};
+        PageObjectDI.loginPageObject.setPin(pinArr);
 
         try {
             Thread.sleep(3000);
@@ -50,29 +33,26 @@ public class UpdatePasscodeSteps {
     }
 
     @Then("^Passcode is updated successfully$")
-    public void passcodeIsUpdatedSuccessfully(){
-        Assert.assertTrue(appSettingsPageObject.verifyPassCodeChange());
+    public void passcodeIsUpdatedSuccessfully() throws Throwable {
+        Assert.assertTrue(PageObjectDI.appSettingsPageObject.verifyPassCodeChange());
     }
 
     @And("^User is able to login with the new passcode$")
-    public void UserIsAbleToLoginWithTheNewPasscode(){
+    public void userIsAbleToLoginWithTheNewPasscode() throws Throwable {
         //tap on more button
-        appSettingsPageObject.navigateBackToSettings();
+        PageObjectDI.appSettingsPageObject.navigateBackToSettings();
 
         //tap on logout
-        settingsPageObject.tapOnLogoutOption();
+        PageObjectDI.settingsPageObject.tapOnLogoutOption();
 
         //tap "yes" on alert
-        commonFactory.callAlertAction(true);
+        PageObjectDI.commonFactory.callAlertAction(true);
 
         //tap in the new passcode
-        AndroidKey[] pinArr={AndroidKey.DIGIT_1,
-                AndroidKey.DIGIT_2,
-                AndroidKey.DIGIT_5,
-                AndroidKey.DIGIT_6};
-        loginPageObject.setPin(pinArr);
+        int[] pinArr={1,2,5,6};
+        PageObjectDI.loginPageObject.setPin(pinArr);
 
         //validate user is on the home view
-        Assert.assertTrue(homePageObject.validateOnHome());
+        Assert.assertTrue(PageObjectDI.homePageObject.validateOnHome());
     }
 }

@@ -1,19 +1,19 @@
 package config;
 
+import cucumber.api.java.Before;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.BeforeTest;
 import java.net.MalformedURLException;
 
 public class AppiumController {
 
     public static String PLATFORM="android";
 
-    @BeforeTest
+    @Before
     public static void setup() throws MalformedURLException, InterruptedException {
 
         DesiredCapabilities dc = new DesiredCapabilities();
-        PLATFORM=System.getenv("MobilePlatform").toLowerCase();
+        PLATFORM=System.getProperty("MobilePlatform").toLowerCase();
 
         switch(PLATFORM) {
             case "android":
@@ -31,7 +31,7 @@ public class AppiumController {
     public static DesiredCapabilities getCapabilities(DesiredCapabilities dc){
         switch(PLATFORM){
             case "android":
-                dc.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UIAUTOMATOR2");
+                dc.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
                 break;
             case "ios":
                 String DeviceUdid = "3FDCD44E-F7CF-4CE2-88AD-CEED4A1043E0";

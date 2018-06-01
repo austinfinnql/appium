@@ -5,11 +5,12 @@ import config.locators.AndroidLocator;
 import config.locators.IOSLocator;
 import config.locators.LocatorInterface;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.nativekey.AndroidKey;
 import pageobjects.common.Android.AndroidActions;
 import utils.DataModel;
 import utils.JsonUtils;
 import utils.Node;
+
+import java.util.Collection;
 import java.util.concurrent.ThreadLocalRandom;
 
 import java.io.FileNotFoundException;
@@ -17,12 +18,11 @@ import java.io.FileNotFoundException;
 
 public class LoginPageObject {
     LocatorInterface locator=null;
-    DataModel dataModel=null;
+    Collection<Node> dataModel=null;
     JsonUtils jsonUtils=null;
 
-    LoginPageObject(){
-        try {
-
+    public LoginPageObject(){
+            jsonUtils= new JsonUtils();
             if(System.getProperty("MobilePlatform").toLowerCase().equals("android")){
                 locator=new AndroidLocator();
                 dataModel=jsonUtils.getDataModel("login/android/Login.json");
@@ -30,12 +30,6 @@ public class LoginPageObject {
                 locator=new IOSLocator();
                 dataModel=jsonUtils.getDataModel("login/ios/Login.json");
             }
-            jsonUtils= new JsonUtils();
-
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 
     public void performLogin(){
@@ -68,9 +62,11 @@ public class LoginPageObject {
 
         //enter sms code using keyboard
         AndroidActions actions=new AndroidActions();
-        AndroidKey[] arr=new AndroidKey[6];
+
+        //AndroidKey[] arr=new AndroidKey[6];
+        int[] arr=new int[6];
         int count=0;
-        while(count<6){arr[count]=AndroidKey.DIGIT_1;count++;}
+        while(count<6){arr[count]=1;count++;}
         actions.useDigitsOnKeyboard(arr);
 
 
@@ -81,10 +77,7 @@ public class LoginPageObject {
         mobileElement.click();
 
         //Set the pin for the app
-        AndroidKey[] pinArr={AndroidKey.DIGIT_1,
-                AndroidKey.DIGIT_4,
-                AndroidKey.DIGIT_5,
-                AndroidKey.DIGIT_6};
+        int[] pinArr={1,4,5,6};
         setPin(pinArr);
 
         //selecting no to fingerprint
@@ -109,7 +102,8 @@ public class LoginPageObject {
         mobileElement9.click();*/
     }
     //
-    public void setPin(AndroidKey[] pinArrary){
+    //public void setPin(AndroidKey[] pinArrary){
+    public void setPin(int[] pinArrary){
         new AndroidActions().useDigitsOnKeyboard(pinArrary);
         try{
             Thread.sleep(2000);

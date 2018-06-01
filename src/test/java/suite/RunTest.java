@@ -1,6 +1,5 @@
 package suite;
-
-
+import cucumber.api.SnippetType;
 import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 import cucumber.api.CucumberOptions;
@@ -9,9 +8,9 @@ import cucumber.api.CucumberOptions;
 @CucumberOptions(
         plugin ={"pretty" , "html:UpdatePasscode"},
         features = "src/test/resources",
-        tags = "@LoginTests")
+        tags = "@LoginTests",
+        snippets = SnippetType.CAMELCASE,
+        dryRun = false,
+        glue ={"steps","config"})
 
-public class UpdatePasscode {
-
-
-}
+public class RunTest {}

@@ -5,16 +5,19 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
+import io.appium.java_client.android.AndroidKeyCode;
+import org.openqa.selenium.WebElement;
+/*import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;*/
 
+import java.sql.Driver;
 import java.util.List;
 
 public class AndroidLocator  implements LocatorInterface{
 
     public static AndroidDriver<AndroidElement> driver = null;
     public AndroidLocator(){
-        driver=(AndroidDriver) DriverCreator.getDriver();
+        driver=DriverCreator.androidDriver;
     }
 
     @Override
@@ -22,7 +25,9 @@ public class AndroidLocator  implements LocatorInterface{
         AndroidElement e=null;
         switch (strategy) {
             case "id":
-                e= ((AndroidElement) driver.findElement(MobileBy.AndroidUIAutomator(element)));
+               // e=(AndroidElement) driver.findElementByAndroidUIAutomator("new UiSelector().resourceId(" + element + ")");
+               e=driver.
+                        findElement(new MobileBy.ByAndroidUIAutomator("new UiSelector().resourceId(\""+element+"\")"));
                 break;
             case "accessibility":
                 e=((AndroidElement) driver.findElement(MobileBy.AccessibilityId(element)));
@@ -45,8 +50,11 @@ public class AndroidLocator  implements LocatorInterface{
         return e;
     }
 
-    public void sendKeysWithKeyBoard(AndroidKey keyCode) {
-        driver.pressKey(new KeyEvent(keyCode));
+    public void sendKeysToKeyBoard(int keyCode) {
+        driver.pressKeyCode(AndroidKeyCode.KEYCODE_1);
+
+        driver.pressKeyCode(keyCode);
+        //driver.pressKey(new KeyEvent(keyCode));
     }
 
     /* public AndroidElement initDriverBy(AndroidDriver driver, MobileBy byType){

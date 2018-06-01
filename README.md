@@ -1,6 +1,6 @@
 # Automated Regression tests for Qantas Money
 * About the Project: 
-    1) This is an Appium based autoamtion proejct to test Qantas Money app.
+    1) This Appium based automation project is an effort to automate the regressions tests used for Qantas Money app.
     2) The is currently being developed to be run locally and uses CucumberRunner for execution of the tests.
     
 * stack:
@@ -12,7 +12,7 @@
        
        NPM 5.3.0
        
-       Appium 1.7.0 (Java_client: 6.0.0)
+       Appium 1.7.2 (Java_client: 5.0.4)
        
        XCode 9 (for IOS)
        

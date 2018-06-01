@@ -9,7 +9,7 @@ import java.util.List;
 public class IOSLocator implements LocatorInterface {
     public static AppiumDriver driver = null;
     public IOSLocator(){
-        driver=DriverCreator.getDriver();
+        driver=DriverCreator.iosDriver;
     }
 
     @Override
