@@ -10,6 +10,13 @@ public class CommonFactory {
         }else{
            // new IOSActions().callAlertAction(selection);
         }
+    }
 
+    public void useDigitsOnKeyboard(int[] key){
+        if(System.getProperty("MobilePlatform").toLowerCase().equals("android")){
+            new AndroidActions().useDigitsOnKeyboard(key);
+        }else{
+            // new IOSActions().callAlertAction(selection);
+        }
     }
 }

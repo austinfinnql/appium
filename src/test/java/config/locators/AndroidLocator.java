@@ -51,7 +51,6 @@ public class AndroidLocator  implements LocatorInterface{
     }
 
     public void sendKeysToKeyBoard(int keyCode) {
-        driver.pressKeyCode(AndroidKeyCode.KEYCODE_1);
 
         driver.pressKeyCode(keyCode);
         //driver.pressKey(new KeyEvent(keyCode));

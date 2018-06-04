@@ -2,12 +2,14 @@ package pageobjects.common.Android;
 
 import config.locators.AndroidLocator;
 //import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.AndroidKeyCode;
 import pageobjects.common.CommonFactory;
 import utils.DataModel;
 import utils.JsonUtils;
 import utils.Node;
 
 import java.io.FileNotFoundException;
+import java.security.Key;
 import java.util.Collection;
 
 public class AndroidActions extends CommonFactory {
@@ -22,10 +24,9 @@ public class AndroidActions extends CommonFactory {
         dataModel=jsonUtils.getDataModel("login/android/Common.json");
     }
 
-    //public void useDigitsOnKeyboard(AndroidKey[] key){
     public void useDigitsOnKeyboard(int[] key){
-        for(int itr=0;itr<key.length;itr++) {
-            locator.sendKeysToKeyBoard(key[itr]);
+        for (int k:key) {
+            locator.sendKeysToKeyBoard(k);
         }
     }
 

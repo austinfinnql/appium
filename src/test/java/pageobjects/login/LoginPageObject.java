@@ -1,22 +1,18 @@
 package pageobjects.login;
 
-import config.DriverCreator;
 import config.locators.AndroidLocator;
 import config.locators.IOSLocator;
 import config.locators.LocatorInterface;
 import io.appium.java_client.MobileElement;
-import pageobjects.common.Android.AndroidActions;
-import utils.DataModel;
+import io.appium.java_client.android.AndroidKeyCode;
+import pageobjects.common.CommonFactory;
 import utils.JsonUtils;
 import utils.Node;
-
 import java.util.Collection;
 import java.util.concurrent.ThreadLocalRandom;
 
-import java.io.FileNotFoundException;
-
-
 public class LoginPageObject {
+
     LocatorInterface locator=null;
     Collection<Node> dataModel=null;
     JsonUtils jsonUtils=null;
@@ -26,6 +22,7 @@ public class LoginPageObject {
             if(System.getProperty("MobilePlatform").toLowerCase().equals("android")){
                 locator=new AndroidLocator();
                 dataModel=jsonUtils.getDataModel("login/android/Login.json");
+
             }else{
                 locator=new IOSLocator();
                 dataModel=jsonUtils.getDataModel("login/ios/Login.json");
@@ -61,15 +58,7 @@ public class LoginPageObject {
         mobileElement.click();
 
         //enter sms code using keyboard
-        AndroidActions actions=new AndroidActions();
-
-        //AndroidKey[] arr=new AndroidKey[6];
-        int[] arr=new int[6];
-        int count=0;
-        while(count<6){arr[count]=1;count++;}
-        actions.useDigitsOnKeyboard(arr);
-
-
+      enterSMSCode();
 
         //Accept TAC
         node=jsonUtils.getValues(dataModel,"TAC");
@@ -77,7 +66,11 @@ public class LoginPageObject {
         mobileElement.click();
 
         //Set the pin for the app
-        int[] pinArr={1,4,5,6};
+        int[] pinArr={AndroidKeyCode.KEYCODE_1,
+                AndroidKeyCode.KEYCODE_4,
+                AndroidKeyCode.KEYCODE_5,
+                AndroidKeyCode.KEYCODE_6};
+
         setPin(pinArr);
 
         //selecting no to fingerprint
@@ -85,31 +78,25 @@ public class LoginPageObject {
         mobileElement=locator.getLocator(node.getType(),node.getIdentifier());
         mobileElement.click();
 
-/*        node=jsonUtils.getValues(dataModel,"num1");
-        MobileElement mobileElement1=locator.getLocator(node.getType(),node.getIdentifier());
-        mobileElement1.click();
-
-        node=jsonUtils.getValues(dataModel,"num4");
-        MobileElement mobileElement4=locator.getLocator(node.getType(),node.getIdentifier());
-        mobileElement4.click();
-
-        node=jsonUtils.getValues(dataModel,"num5");
-        MobileElement mobileElement5=locator.getLocator(node.getType(),node.getIdentifier());
-        mobileElement5.click();
-
-        node=jsonUtils.getValues(dataModel,"num9");
-        MobileElement mobileElement9=locator.getLocator(node.getType(),node.getIdentifier());
-        mobileElement9.click();*/
     }
-    //
-    //public void setPin(AndroidKey[] pinArrary){
+
+    //To set the pin
     public void setPin(int[] pinArrary){
-        new AndroidActions().useDigitsOnKeyboard(pinArrary);
+        new CommonFactory().useDigitsOnKeyboard(pinArrary);
+        //TODO: need to switch to fluentwait()
         try{
             Thread.sleep(2000);
         }catch(Exception e){
             e.printStackTrace();
         }
-        new AndroidActions().useDigitsOnKeyboard(pinArrary);
+        new CommonFactory().useDigitsOnKeyboard(pinArrary);
+    }
+
+    // To enter the SMS pin, by default all 1's are enetered.
+    private void enterSMSCode(){
+        int[] arr=new int[6];
+        int count=0;
+        while(count<6){arr[count]=AndroidKeyCode.KEYCODE_1;count++;}
+        new CommonFactory().useDigitsOnKeyboard(arr);
     }
 }

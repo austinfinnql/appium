@@ -48,12 +48,11 @@
       "name": "join",
       "type": "id",
       "identifier": "com.qantas.fs.stub:id/view_join_now"
-
     },
     {
       "name":"TAC",
-      "":"id",
-      "":"com.qantas.fs.stub:id/btn_agree"
+      "type":"id",
+      "identifier":"com.qantas.fs.stub:id/btn_agree"
     },
     {
       "name":"fingerprintno",
