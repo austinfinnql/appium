@@ -1,13 +1,10 @@
 package config;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import lombok.Getter;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
@@ -20,7 +17,6 @@ public class DriverCreator  {
     public static IOSDriver<IOSElement> iosDriver=null;
 
     public void setAndroidDriver(DesiredCapabilities dc) throws MalformedURLException {
-
         androidDriver=new AndroidDriver<AndroidElement>(new URL("http://localhost:4723/wd/hub"),dc);
     }
 

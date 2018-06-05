@@ -18,9 +18,6 @@ public class JsonUtils {
     public Collection<Node> getDataModel(String fileName) {
 
        String filePath="src/test/java/pageobjects/"+fileName;
-//        JsonReader reader = new JsonReader(new FileReader(filePath));
-//
-
         Gson gson = new GsonBuilder().create();
         Collection<Node> dm= null;
 
@@ -31,8 +28,6 @@ public class JsonUtils {
             e.printStackTrace();
         }
         return dm;
-        //return gson.fromJson(new FileReader(filePath), DataModel.class);
-
     }
 
     /*

@@ -23,10 +23,10 @@ public class SettingsPageObject {
             jsonUtils= new JsonUtils();
             if(System.getProperty("MobilePlatform").toLowerCase().equals("android")){
                 locator=new AndroidLocator();
-                dataModel=jsonUtils.getDataModel("login/android/SettingsOptions.json");
+                dataModel=jsonUtils.getDataModel("settings/android/SettingsOptions.json");
             }else{
                 locator=new IOSLocator();
-                dataModel=jsonUtils.getDataModel("login/ios/SettingsOptions.json");
+                dataModel=jsonUtils.getDataModel("settings/ios/SettingsOptions.json");
             }
 
     }

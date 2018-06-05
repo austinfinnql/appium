@@ -1,6 +1,6 @@
 package pageobjects.common;
 
-import pageobjects.common.Android.AndroidActions;
+import pageobjects.common.android.AndroidActions;
 
 public class CommonFactory {
 

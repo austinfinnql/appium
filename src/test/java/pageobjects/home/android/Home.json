@@ -1,5 +1,4 @@
-{
-  "items": [
+[
     {
       "name": "home",
       "type": "id",
@@ -14,6 +13,11 @@
       "name":"greeting",
       "type":"id",
       "identifier":"com.qantas.fs.stub:id/txt_greeting"
-    }
-  ]
-}
+    },
+  {
+    "name":"pointslabel",
+    "type":"id",
+    "identifier":"com.qantas.fs.stub:id/txt_qantas_points_label"
+  }
+]
+

@@ -21,10 +21,10 @@ public class HomePageObject {
             jsonUtils= new JsonUtils();
             if(System.getProperty("MobilePlatform").toLowerCase().equals("android")){
                 locator=new AndroidLocator();
-                dataModel=jsonUtils.getDataModel("login/android/Home.json");
+                dataModel=jsonUtils.getDataModel("home/android/Home.json");
             }else{
                 locator=new IOSLocator();
-                dataModel=jsonUtils.getDataModel("login/ios/Home.json");
+                dataModel=jsonUtils.getDataModel("home/ios/Home.json");
             }
     }
 
@@ -32,8 +32,12 @@ public class HomePageObject {
         Node node=jsonUtils.getValues(dataModel,"more");
         locator.getLocator(node.getType(),node.getIdentifier()).click();
     }
-    public boolean validateOnHome(){
+    public String validateGreetingsOnHome(){
         Node node=jsonUtils.getValues(dataModel,"greeting");
-        return locator.getLocator(node.getType(),node.getIdentifier()).isDisplayed();
+        return locator.getLocator(node.getType(),node.getIdentifier()).getText();
+    }
+    public String validatePointsLabelOnHome(){
+        Node node=jsonUtils.getValues(dataModel,"pointslabel");
+        return locator.getLocator(node.getType(),node.getIdentifier()).getText();
     }
 }

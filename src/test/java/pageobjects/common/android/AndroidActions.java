@@ -1,11 +1,11 @@
-package pageobjects.common.Android;
+package pageobjects.common.android;
 
 import config.locators.AndroidLocator;
-//import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.AndroidKeyCode;
+
+
 import pageobjects.common.CommonFactory;
-import utils.DataModel;
 import utils.JsonUtils;
+import utils.DataModel;
 import utils.Node;
 
 import java.io.FileNotFoundException;
@@ -21,7 +21,7 @@ public class AndroidActions extends CommonFactory {
     public AndroidActions(){
         locator=new AndroidLocator();
         jsonUtils= new JsonUtils();
-        dataModel=jsonUtils.getDataModel("login/android/Common.json");
+        dataModel=jsonUtils.getDataModel("common/android/Common.json");
     }
 
     public void useDigitsOnKeyboard(int[] key){

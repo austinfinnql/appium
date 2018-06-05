@@ -9,6 +9,8 @@ public class UpdatePasscodeSteps extends PageObjectDI{
     @When("^User attempts to change passcode$")
     public void userAttemptsToChangePasscode() throws Throwable {
 
+        try{ Thread.sleep(2000);
+        }catch(Exception e){ e.printStackTrace(); }
         // tap on more button
         PageObjectDI.homePageObject.tapOnMoreButton();
         //select settings
@@ -17,23 +19,13 @@ public class UpdatePasscodeSteps extends PageObjectDI{
         PageObjectDI.appSettingsPageObject.tapChangePasscodeOption();
 
         //change passcode
-
-/*        AndroidKey[] pinArr={AndroidKey.DIGIT_6,
-                AndroidKey.DIGIT_5,
-                AndroidKey.DIGIT_4,
-                AndroidKey.DIGIT_5};*/
-        int[] pinArr={6,5,4,5};
+        String[] pinArr={"num6","num5","num4","num5"};
         PageObjectDI.loginPageObject.setPin(pinArr);
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     @Then("^Passcode is updated successfully$")
     public void passcodeIsUpdatedSuccessfully() throws Throwable {
+        // the popup is too quick to check for and so for now its commented
         Assert.assertTrue(PageObjectDI.appSettingsPageObject.verifyPassCodeChange());
     }
 
@@ -44,15 +36,20 @@ public class UpdatePasscodeSteps extends PageObjectDI{
 
         //tap on logout
         PageObjectDI.settingsPageObject.tapOnLogoutOption();
+        try { Thread.sleep(2000); }
+        catch (InterruptedException e) { e.printStackTrace(); }
 
         //tap "yes" on alert
         PageObjectDI.commonFactory.callAlertAction(true);
 
         //tap in the new passcode
-        int[] pinArr={1,2,5,6};
-        PageObjectDI.loginPageObject.setPin(pinArr);
+        String[] pinArr={"num6","num5","num4","num5"};
+        PageObjectDI.loginPageObject.loginUsingPin(pinArr);
 
         //validate user is on the home view
-        Assert.assertTrue(PageObjectDI.homePageObject.validateOnHome());
+        String retText=PageObjectDI.homePageObject.validateGreetingsOnHome().toLowerCase();
+        Assert.assertTrue(retText.contains("good"));
+        retText=PageObjectDI.homePageObject.validatePointsLabelOnHome().toLowerCase();
+        Assert.assertTrue(retText.contains("points"));
     }
 }

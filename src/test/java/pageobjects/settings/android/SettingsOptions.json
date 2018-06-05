@@ -1,29 +1,27 @@
-{
-  "items": [
-    {
-      "name": "options",
-      "type": "id",
-      "identifier": "com.qantas.fs.stub:id/txt_text"
-    },
-    {
-      "name": "changepassCode",
-      "type": "accessibility",
-      "identifier": "Change passcode"
-    },
-    {
-      "name": "fingerprintToggle",
-      "type": "id",
-      "identifier": "com.qantas.fs.stub:id/btn_toggle"
-    },
-    {
-      "name": "navigateback",
-      "type": "accessibility",
-      "identifier": "Back"
-    },
-    {
-      "name": "passcodechanged",
-      "type": "id",
-      "identifier": "com.qantas.fs.stub:id/textview"
-    }
-  ]
-}
+[
+  {
+    "name": "options",
+    "type": "id",
+    "identifier": "com.qantas.fs.stub:id/txt_text"
+  },
+  {
+    "name": "changepassCode",
+    "type": "descriptionStartsWith",
+    "identifier": "Change"
+  },
+  {
+    "name": "fingerprintToggle",
+    "type": "id",
+    "identifier": "com.qantas.fs.stub:id/btn_toggle"
+  },
+  {
+    "name": "navigateback",
+    "type": "accessibility",
+    "identifier": "Back"
+  },
+  {
+    "name": "passcodechanged",
+    "type": "id",
+    "identifier": "com.qantas.fs.stub:id/textview"
+  }
+]
