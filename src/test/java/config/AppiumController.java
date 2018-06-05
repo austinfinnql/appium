@@ -1,9 +1,21 @@
 package config;
 
+import com.browserstack.local.Local;
 import cucumber.api.java.Before;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.URL;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class AppiumController {
 
@@ -53,14 +65,20 @@ public class AppiumController {
     }
 
 
-   /* public void browerStackConfig(){
+    /*public void browerStackConfig()   {
+         Local l;
         JSONParser parser = new JSONParser();
-        JSONObject config = (JSONObject) parser.parse(new FileReader("src/test/resources/conf/" + config_file));
+        JSONObject config =null;
+        try {
+            config = (JSONObject) parser.parse(new FileReader("src/test/config/config.json"));
+        }catch (IOException | ParseException e){
+            e.printStackTrace();
+        }
         JSONObject envs = (JSONObject) config.get("environments");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        Map<String, String> envCapabilities = (Map<String, String>) envs.get(environment);
+        Map<String, String> envCapabilities = (Map<String, String>) envs.get("environment");
         Iterator it = envCapabilities.entrySet().iterator();
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
@@ -95,9 +113,13 @@ public class AppiumController {
             l = new Local();
             Map<String, String> options = new HashMap<String, String>();
             options.put("key", accessKey);
-            l.start(options);
+            try {
+                l.start(options);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
-        driver = new RemoteWebDriver(new URL("http://"+username+":"+accessKey+"@"+config.get("server")+"/wd/hub"), capabilities);
+       // driver = new RemoteWebDriver(new URL("http://"+username+":"+accessKey+"@"+config.get("server")+"/wd/hub"), capabilities);
     }*/
 }

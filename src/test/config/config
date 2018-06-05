@@ -1,0 +1,19 @@
+{
+    {
+        "server": "hub-cloud.browserstack.com",
+        "user": "USERNAME",
+        "key": "ACCESS_KEY",
+
+        "capabilities": {
+            "browserstack.debug": true
+        },
+
+        "environments": [
+            {
+                "IOS": "ios"
+            },{
+                "ANDROID": "android"
+            }
+        ]
+    }
+}
