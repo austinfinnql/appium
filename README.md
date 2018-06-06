@@ -52,3 +52,8 @@ Android:
 appium --pre-launch --platform-name android --platform-version xxx--device-name xxx     --app ~/xxx.apk
 
 Details of server arguments can be found at https://appium.io/slate/en/master/#appium-server-arguments.  
+
+
+BrowserStack:
+1) Appium setup: https://www.browserstack.com/app-automate/appium-java
+2)

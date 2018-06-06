@@ -1,0 +1,17 @@
+[
+  {
+    "name": "yesonalert",
+    "type": "accessibility",
+    "identifier": "Yes"
+  },
+  {
+    "name": "noonalert",
+    "type": "accessibility",
+    "identifier": "No"
+  },
+  {
+    "name": "OK",
+    "type": "accessibility",
+    "identifier": "OK"
+  }
+]

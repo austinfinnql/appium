@@ -1,19 +1,19 @@
 {
   "items": [
     {
-      "name": "home",
-      "type": "id",
-      "identifier": "com.qantas.fs.stub:id/btn_home"
+      "name": "points",
+      "type": "accessibility",
+      "identifier": "Points"
     },
     {
       "name": "more",
-      "type": "id",
-      "identifier": "com.qantas.fs.stub:id/btn_more"
+      "type": "xpath",
+      "identifier": "//XCUIElementTypeApplication[@name='DEV Qantas Money']/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTabBar/XCUIElementTypeButton[3]"
     },
     {
       "name":"greeting",
-      "type":"id",
-      "identifier":"com.qantas.fs.stub:id/txt_greeting"
+      "type":"accessibility",
+      "identifier":"Good afternoon, Richard"
     }
   ]
 }

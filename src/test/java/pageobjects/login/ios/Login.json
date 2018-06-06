@@ -1,85 +1,77 @@
-{
-  "items": [
+[
     {
       "name": "membernumber",
-      "type": "id",
-      "identifier": "com.qantas.fs.stub:id/txt_member_no"
-    },
-    {
-      "name": "membernumber_acc",
       "type": "accessibility",
-      "identifier": "Enter your Qantas Frequent Flier membership number"
-    },
-    {
-      "name": "lastname",
-      "type": "id",
-      "identifier": "com.qantas.fs.stub:id/txt_last_name"
+      "identifier": "Membership number"
     },
     {
       "name": "lastname_acc",
       "type": "accessibility",
-      "identifier": "Enter your last name"
-    },
-    {
-      "name": "pin",
-      "type": "id",
-      "identifier": "com.qantas.fs.stub:id/txt_pin"
+      "identifier": "Last name"
     },
     {
       "name": "pin_acc",
       "type": "accessibility",
-      "identifier": "Enter your 4 digit pin"
+      "identifier": "PIN"
     },
     {
       "name": "loginbtn",
-      "type": "id",
-      "identifier": "com.qantas.fs.stub:id/btn_log_in"
+      "type": "accessibility",
+      "identifier": "LOG IN"
     },
     {
       "name": "forgot",
-      "type": "id",
-      "identifier": "com.qantas.fs.stub:id/btn_forgot"
-    },
-    {
-      "name": "forgot_acc",
       "type": "accessibility",
-      "identifier": "Forgot your pin button"
+      "identifier": "Forgotten your PIN?"
     },
     {
       "name": "join",
-      "type": "id",
-      "identifier": "com.qantas.fs.stub:id/view_join_now"
-
+      "type": "accessibility",
+      "identifier": "ffSIgnUp"
     },
     {
       "name":"TAC",
-      "":"id",
-      "":"com.qantas.fs.stub:id/btn_agree"
+      "type":"accessibility",
+      "identifier":"com.qantas.fs.stub:id/btn_agree"
     },
     {
-      "name":"num2",
-      "type":"id",
-      "identifier":"com.qantas.fs.stub:id/button_2"
+      "name":"num1",
+      "type":"accessibility",
+      "identifier":"1"
+    },
+  {
+    "name":"num6",
+    "type":"accessibility",
+    "identifier":"6"
+  },
+  {
+    "name":"num5",
+    "type":"accessibility",
+    "identifier":"5"
+  },
+  {
+    "name":"num4",
+    "type":"accessibility",
+    "identifier":"4"
+  },
+    {
+      "name":"MMN",
+      "type":"accessibility",
+      "identifier":"Mother's maiden name"
     },
     {
-      "name":"num5",
-      "type":"id",
-      "identifier":"com.qantas.fs.stub:id/button_5"
+      "name":"DOB",
+      "type":"accessibility",
+      "identifier":"Date of birth"
     },
-    {
-      "name":"num4",
-      "type":"id",
-      "identifier":"com.qantas.fs.stub:id/button_4"
-    },
-    {
-      "name":"fingerprintno",
-      "type":"id",
-      "identifier":"com.qantas.fs.stub:id/btn_no_fingerprint"
-    },
-    {
-      "name":"fingerprintyes",
-      "type":"id",
-      "identifier":"com.qantas.fs.stub:id/btn_yes_fingerprint"
-    }
-  ]
-}
+  {
+    "name":"Postcode",
+    "type":"accessibility",
+    "identifier":"Postcode"
+  },
+  {
+    "name":"accept",
+    "type":"accessibility",
+    "identifier":"ACCEPT"
+  }
+]

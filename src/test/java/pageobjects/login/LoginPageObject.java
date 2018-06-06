@@ -67,7 +67,7 @@ public class LoginPageObject {
 
         //Set the pin for the app
         String[] pinArr={"num1", "num4", "num5", "num6"};
-        setPin2(pinArr);
+        setPin(pinArr);
 
         // Fingerprint is not shown in stub build and so disabled for now
         //selecting no to fingerprint
@@ -101,31 +101,5 @@ public class LoginPageObject {
         int count=0;
         while(count<6){arr[count]=AndroidKeyCode.KEYCODE_1;count++;}
         new CommonFactory().useDigitsOnKeyboard(arr);
-    }
-
-    public void setPin2(String[] pinArray){
-        locator.getLocator("id","com.qantas.fs.stub:id/button_1").click();
-        locator.getLocator("id","com.qantas.fs.stub:id/button_4").click();
-        locator.getLocator("id","com.qantas.fs.stub:id/button_5").click();
-        locator.getLocator("id","com.qantas.fs.stub:id/button_6").click();
-
-        locator.getLocator("id","com.qantas.fs.stub:id/button_1").click();
-        locator.getLocator("id","com.qantas.fs.stub:id/button_4").click();
-        locator.getLocator("id","com.qantas.fs.stub:id/button_5").click();
-        locator.getLocator("id","com.qantas.fs.stub:id/button_6").click();
-
-
-//        locator.getLocator("accessibility","1").click();
-//        locator.getLocator("accessibility","4").click();
-//        locator.getLocator("accessibility","5").click();
-//        locator.getLocator("accessibility","6").click();
-//
-//        try{ Thread.sleep(2000);
-//        }catch(Exception e){ e.printStackTrace(); }
-//        locator.getLocator("accessibility","1").click();
-//        locator.getLocator("accessibility","4").click();
-//        locator.getLocator("accessibility","5").click();
-//        locator.getLocator("accessibility","6").click();
-
     }
 }

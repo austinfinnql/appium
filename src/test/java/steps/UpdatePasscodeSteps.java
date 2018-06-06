@@ -2,7 +2,7 @@ package steps;
 
 
 import cucumber.api.java.en.*;
-import org.testng.Assert;
+import org.junit.Assert;
 
 public class UpdatePasscodeSteps extends PageObjectDI{
 

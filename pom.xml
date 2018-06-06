@@ -9,9 +9,9 @@
     <version>1.0-SNAPSHOT</version>
     <properties>
         <platformName>ios</platformName>
-        <deviceName>iPhone 8 Plus</deviceName>
+        <deviceName>Qantas's iPhone</deviceName>
         <local>yes</local>
-        <UDID>a999999999</UDID>
+        <UDID>594b35021a10effb6e8f5cc5345f6ba067f28a65</UDID>
     </properties>
     <build>
         <plugins>
@@ -22,6 +22,8 @@
                 <configuration>
                     <systemPropertyVariables>
                         <MobilePlatform>${platformName}</MobilePlatform>
+                        <DeviceName>${deviceName}</DeviceName>
+                        <UDID>${UDID}</UDID>
                         <TestEnv>${local}</TestEnv>
                     </systemPropertyVariables>
 
