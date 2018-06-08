@@ -17,6 +17,9 @@
        XCode 9 or higher (for IOS)
        
        Android Studio 2.* or latest
+* For using BrowserStack
+  1) BrowserStack: https://automate.browserstack.com/app-automate/appium-testng
+  2) Appium setup: https://www.browserstack.com/app-automate/appium-java
        
 * Appium Setup IOS devices: 
     
@@ -39,25 +42,32 @@
 |           +-- utils                   # Contains json parser and other non-test related files
 |       +-- resource                    # the feature files are to be placed in this folder
 ````
+
+A word about usage:
+1) Let PageObjects do the heavy lifting. 
+2) PageObject should provide services and not return MobileElement objects.
+3) Decouple locator methods (any findElement* call) from pageobjects. findElement() are driver level call and should be handled independently
+4) Step implementations should always and only call PageObject. Step definitions should have only the minimal logic present.
    
-Running your tests in local
+Running your tests locally
 ---------------------------
 
 To start appium server from terminal:
 
-iOS:
-appium --pre-launch --platform-name ios --platform-version xxx --udid xxxx --app ~/xxx.app --device-name xxx
+* iOS:
+appium --pre-launch --platform-name ios --platform-version xxx --udid xxxx --device-name xxx --app ~/xxx.app
 
-Android:
-appium --pre-launch --platform-name android --platform-version xxx--device-name xxx     --app ~/xxx.apk
+* example
+appium --pre-launch --platform-name ios --platform-version 11.3 -U C3BB859C-EBAA-4245-B432-FEAD9C81FB17 --device-name "iPhone 8 Plus" --app ~/AvroIOS.app
 
-Details of server arguments can be found at https://appium.io/slate/en/master/#appium-server-arguments.  
+* Android:
+appium --pre-launch --platform-name android --platform-version xxx --device-name xxx --app ~/xxx.apk
 
-To executed the tests:
-mvn clean install
+* Details of server arguments can be found at https://appium.io/slate/en/master/#appium-server-arguments.  
 
-BrowserStack:
-Appium setup: https://www.browserstack.com/app-automate/appium-java
+To executed the tests (client): mvn clean install
+
+-----------------------------
  
 Current State:
 1) The change passcode test have been completed for Android.
@@ -66,3 +76,4 @@ Current State:
     * In "Activate your card": the field to enter “CVC” does not have an ID.
     XPath can be used in this case, but it did not provide the stability we 
     look for in automated testcase.
+---------------------------------

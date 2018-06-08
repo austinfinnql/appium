@@ -8,10 +8,15 @@
     <artifactId>testdev</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <platformName>ios</platformName>
+        <platformName>android</platformName>
         <deviceName>Qantas's iPhone</deviceName>
         <local>yes</local>
         <UDID>594b35021a10effb6e8f5cc5345f6ba067f28a65</UDID>
+        <browserstack.local>true</browserstack.local>
+        <BROWSERSTACK_USERNAME>yasaswi.lakkaraju</BROWSERSTACK_USERNAME>
+        <BROWSERSTACK_ACCESS_KEY>asdadsadadadadad</BROWSERSTACK_ACCESS_KEY>
+        <BROWSERSTACK_APP_ID>bs://hashed appid</BROWSERSTACK_APP_ID>
+        <USE-BROWSERSTACK>false</USE-BROWSERSTACK>
     </properties>
     <build>
         <plugins>
@@ -25,6 +30,10 @@
                         <DeviceName>${deviceName}</DeviceName>
                         <UDID>${UDID}</UDID>
                         <TestEnv>${local}</TestEnv>
+                        <BROWSERSTACK_USERNAME>${BROWSERSTACK_USERNAME}</BROWSERSTACK_USERNAME>
+                        <BROWSERSTACK_ACCESS_KEY>${BROWSERSTACK_ACCESS_KEY}</BROWSERSTACK_ACCESS_KEY>
+                        <BROWSERSTACK_APP_ID>${BROWSERSTACK_APP_ID}</BROWSERSTACK_APP_ID>
+                        <BROWSERSTACK_APP_ID>${USE-BROWSERSTACK}</BROWSERSTACK_APP_ID>
                     </systemPropertyVariables>
 
                 </configuration>
