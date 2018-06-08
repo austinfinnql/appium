@@ -3,6 +3,7 @@ package pageobjects.login;
 import config.locators.AndroidLocator;
 import config.locators.IOSLocator;
 import config.locators.LocatorInterface;
+import config.AppiumController;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidKeyCode;
 import pageobjects.common.CommonFactory;
@@ -16,28 +17,34 @@ public class LoginPageObject {
     LocatorInterface locator=null;
     Collection<Node> dataModel=null;
     JsonUtils jsonUtils=null;
+    CommonFactory commonFactory = null;
+    Node node=null;
+    MobileElement mobileElement=null;
 
     public LoginPageObject(){
-            jsonUtils= new JsonUtils();
-            if(System.getProperty("MobilePlatform").toLowerCase().equals("android")){
-                locator=new AndroidLocator();
-                dataModel=jsonUtils.getDataModel("login/android/Login.json");
+        jsonUtils= new JsonUtils();
+        commonFactory=new CommonFactory();
 
-            }else{
-                locator=new IOSLocator();
-                dataModel=jsonUtils.getDataModel("login/ios/Login.json");
-            }
+        if(AppiumController.PLATFORM.equals("android")){
+            locator=new AndroidLocator();
+            dataModel=jsonUtils.getDataModel("login/android/Login.json");
+
+        }else{
+            locator=new IOSLocator();
+            dataModel=jsonUtils.getDataModel("login/ios/Login.json");
+
+        }
     }
 
     public void performLogin(){
         //enter member number
-        Node node=jsonUtils.getValues(dataModel,"membernumber");
-        MobileElement mobileElement=locator.getLocator(node.getType(),node.getIdentifier());
+        node=jsonUtils.getValues(dataModel,"membernumber");
+        mobileElement=locator.getLocator(node.getType(),node.getIdentifier());
         mobileElement.click();
 
         //since we will hard code the pin values, we want to make sure
         // the Member number is random so there is no issues with duplication of the pin
-        int randomNum = ThreadLocalRandom.current().nextInt(101, 5000 + 1);
+        int randomNum = ThreadLocalRandom.current().nextInt(1000, 5000 + 1);
         mobileElement.sendKeys( String.valueOf(randomNum));
 
         // enter lastName
@@ -60,6 +67,26 @@ public class LoginPageObject {
         //enter sms code using keyboard
       enterSMSCode();
 
+
+      if(AppiumController.PLATFORM.equals("ios")){
+          // enter Mother's maiden name
+          node=jsonUtils.getValues(dataModel,"MMN");
+          mobileElement=locator.getLocator(node.getType(),node.getIdentifier());
+          mobileElement.click();
+          mobileElement.sendKeys("mother");
+
+          // enter DOB
+          node=jsonUtils.getValues(dataModel,"DOB");
+          mobileElement=locator.getLocator(node.getType(),node.getIdentifier());
+          mobileElement.click();
+          mobileElement.sendKeys("07/06/1995");
+
+          // enter postcode
+          node=jsonUtils.getValues(dataModel,"Postcode");
+          mobileElement=locator.getLocator(node.getType(),node.getIdentifier());
+          mobileElement.click();
+          mobileElement.sendKeys("2020");
+      }
         //Accept TAC
         node=jsonUtils.getValues(dataModel,"TAC");
         mobileElement=locator.getLocator(node.getType(),node.getIdentifier());
@@ -80,7 +107,7 @@ public class LoginPageObject {
     //To set the pin
     public void loginUsingPin(String[] pinArray){
         Node node=null;
-        MobileElement mobileElement=null;
+        mobileElement=null;
         //the keyboard for setting pin does not get detected with  AndroidKeyCode
         //we have to use the accessibility for this screen.
         for(String k:  pinArray){
@@ -97,9 +124,29 @@ public class LoginPageObject {
 
     // To enter the SMS pin, by default all 1's are enetered.
     private void enterSMSCode(){
-        int[] arr=new int[6];
-        int count=0;
-        while(count<6){arr[count]=AndroidKeyCode.KEYCODE_1;count++;}
-        new CommonFactory().useDigitsOnKeyboard(arr);
+        int[] arr = new int[6];
+        int count = 0;
+        mobileElement=null;
+
+        if(AppiumController.PLATFORM.equals("android")) {
+            while (count < 6) {
+                arr[count] = AndroidKeyCode.KEYCODE_1;
+                count++;
+            }
+            new CommonFactory().useDigitsOnKeyboard(arr);
+        }else{
+            node = jsonUtils.getValues(dataModel, "num1");
+            mobileElement = locator.getLocator(node.getType(), node.getIdentifier());
+            while (count < 6) {
+                mobileElement = locator.getLocator(node.getType(), node.getIdentifier());
+                mobileElement.click();
+                count++;
+            }
+//            while (count < 6) {
+//                mobileElement = locator.getLocator(node.getType(), node.getIdentifier());
+//                commonFactory.useTouchActions(mobileElement);
+//                count++;
+//            }
+        }
     }
 }

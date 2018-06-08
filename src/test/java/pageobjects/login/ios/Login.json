@@ -5,12 +5,12 @@
       "identifier": "Membership number"
     },
     {
-      "name": "lastname_acc",
+      "name": "lastname",
       "type": "accessibility",
       "identifier": "Last name"
     },
     {
-      "name": "pin_acc",
+      "name": "pin",
       "type": "accessibility",
       "identifier": "PIN"
     },

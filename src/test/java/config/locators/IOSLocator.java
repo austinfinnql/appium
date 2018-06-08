@@ -3,6 +3,7 @@ package config.locators;
 import config.DriverCreator;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.IOSElement;
 import org.apache.commons.io.FileUtils;
@@ -10,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.interactions.Keyboard;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -35,6 +37,9 @@ public class IOSLocator implements LocatorInterface {
                 break;
             case "nspredicate":
                 e= initDriver(driver, new MobileBy.ByAccessibilityId(element));
+                break;
+            case "xpath":
+                e=driver.findElementByXPath("//XCUIElementTypeKey[@name=\'"+element+"\']");
                 break;
             default:
                 //we will pass the element name as a filename for sreenshot
@@ -62,9 +67,15 @@ public class IOSLocator implements LocatorInterface {
         return list;
     }
 
-    public void sendKeysToKeyBoard(int keyCode) {
+    public void sendKeysToKeyBoard(String keyCode) {
 
-        //driver.pressKey(new KeyEvent(keyCode));
+        Keyboard k=driver.getKeyboard();
+        k.pressKey(keyCode);
+        k.releaseKey(keyCode);
+    }
+    public void sendKeysToKeyBoard(MobileElement mobileElement) {
+        TouchAction touchAction = new TouchAction(driver);
+        touchAction.tap(mobileElement).perform();
     }
 
     public IOSElement initDriver(IOSDriver driver, final MobileBy byType){
@@ -121,5 +132,19 @@ public class IOSLocator implements LocatorInterface {
                 throw new IllegalArgumentException("Not supported");
         }
 
+    }
+
+    //as opposed to Android, IOS starts in UAT env and so we need to switch to STUB
+    public void switchToStub(){
+        driver.shake();
+
+        initDriver(driver, new MobileBy.ByAccessibilityId("App settings")).click();
+        initDriver(driver, new MobileBy.ByAccessibilityId("UAT")).click();
+        initDriver(driver, new MobileBy.ByAccessibilityId("Stubs")).click();
+        initDriver(driver, new MobileBy.ByAccessibilityId("Done")).click();;
+    }
+
+    public void getDateandTimeWheel(){
+        driver.findElementByXPath(("//XCUIElementTypePickerWheel[@type='XCUIElementTypePickerWheel']")).click();
     }
 }

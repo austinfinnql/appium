@@ -1,5 +1,6 @@
 package pageobjects.settings;
 
+import config.AppiumController;
 import config.locators.AndroidLocator;
 import config.locators.IOSLocator;
 import config.locators.LocatorInterface;
@@ -21,7 +22,7 @@ public class AppSettingsPageObject {
 
     public AppSettingsPageObject(){
             jsonUtils= new JsonUtils();
-            if(System.getProperty("MobilePlatform").toLowerCase().equals("android")){
+            if(AppiumController.PLATFORM.equals("android")){
                 locator=new AndroidLocator();
                 dataModel=jsonUtils.getDataModel("settings/android/SettingsOptions.json");
             }else{

@@ -46,15 +46,15 @@ public class AppiumController {
                 dc.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
                 break;
             case "ios":
-                String DeviceUdid = "3FDCD44E-F7CF-4CE2-88AD-CEED4A1043E0";
+/*                String DeviceUdid = "3FDCD44E-F7CF-4CE2-88AD-CEED4A1043E0";
 
                 //IOS Capabilties for real device and simulator
                 dc.setCapability("platformName", "iOS");
-                dc.setCapability("deviceName", "iPhone 6 ");
-                dc.setCapability("bundleId", "com.qantas.fs.dev");
+                dc.setCapability("deviceName", "iPhone 6 ");*/
+//              dc.setCapability("bundleId", "com.qantas.fs.dev");
+//              dc.setCapability("automationName", "XCUITest");
                 dc.setCapability("noReset", true);
-                dc.setCapability("automationName", "XCUITest");
-                dc.setCapability(MobileCapabilityType.UDID, DeviceUdid);
+                dc.setCapability("useNewWDA", true);
                 break;
             default:
 

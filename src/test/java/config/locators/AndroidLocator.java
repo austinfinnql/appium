@@ -139,5 +139,8 @@ public class AndroidLocator  implements LocatorInterface{
             e.printStackTrace();
         }
     }
+    //this is primarly implement for IOS and not for Android.
+    public void switchToStub(){}
+
 
 }

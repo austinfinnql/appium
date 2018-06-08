@@ -2,6 +2,7 @@ package pageobjects.common.ios;
 
 import config.locators.AndroidLocator;
 import config.locators.IOSLocator;
+import io.appium.java_client.MobileElement;
 import utils.DataModel;
 import utils.JsonUtils;
 import utils.Node;
@@ -21,8 +22,12 @@ public class IOSActions {
 
     public void useDigitsOnKeyboard(int[] key){
         for (int k:key) {
-            locator.sendKeysToKeyBoard(k);
+            locator.sendKeysToKeyBoard(String.valueOf(k));
         }
+    }
+
+    public void useTouchActions(MobileElement key){
+            locator.sendKeysToKeyBoard(key);
     }
 
     public void callAlertAction(boolean selection){
