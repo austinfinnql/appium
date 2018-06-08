@@ -14,7 +14,7 @@
        
        Appium 1.7.2 (Java_client: 5.0.4)
        
-       XCode 9 (for IOS)
+       XCode 9 or higher (for IOS)
        
        Android Studio 2.* or latest
        
@@ -53,7 +53,16 @@ appium --pre-launch --platform-name android --platform-version xxx--device-name 
 
 Details of server arguments can be found at https://appium.io/slate/en/master/#appium-server-arguments.  
 
+To executed the tests:
+mvn clean install
 
 BrowserStack:
-1) Appium setup: https://www.browserstack.com/app-automate/appium-java
-2)
+Appium setup: https://www.browserstack.com/app-automate/appium-java
+ 
+Current State:
+1) The change passcode test have been completed for Android.
+2) On IOS there are Accessibility id's missing for
+    * In toolbar/navbar, the elements, "Home", "Pay a bill", and "More"
+    * In "Activate your card": the field to enter “CVC” does not have an ID.
+    XPath can be used in this case, but it did not provide the stability we 
+    look for in automated testcase.
