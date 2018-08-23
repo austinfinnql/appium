@@ -1,0 +1,12 @@
+[
+    {
+      "name": "loginBtn",
+      "type": "accessibility",
+      "identifier": "LOG IN"
+    },
+    {
+      "name": "apply",
+      "type": "accessibility",
+      "identifier": "Apply for one of our products"
+    }
+]

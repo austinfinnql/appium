@@ -1,0 +1,27 @@
+[
+    {
+      "name": "Settings",
+      "type": "accessibility",
+      "identifier": "Settings"
+    },
+    {
+      "name": "changepasscode",
+      "type": "accessibility",
+      "identifier": "Change passcode"
+    },
+    {
+      "name": "Change password",
+      "type": "accessibility",
+      "identifier": "Change password"
+    },
+  {
+    "name": "Back",
+    "type": "accessibility",
+    "identifier": "Back"
+  },
+  {
+    "name": "Logout",
+    "type": "accessibility",
+    "identifier": "Log out"
+  }
+]

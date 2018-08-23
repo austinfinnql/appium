@@ -1,0 +1,18 @@
+{
+  "server": "hub-cloud.browserstack.com",
+  "user": "yasaswilakkaraju1",
+  "key": "QGhvxCxTXmh1VVo1fFbQ",
+
+  "capabilities": {
+    "build": "testng-browserstack",
+    "name": "single_appium_test",
+    "browserstack.debug": true,
+    "app": "bs://<hashed app-id>"
+  },
+
+  "environments": {
+    "galaxy_s7": {
+      "device": "Samsung Galaxy S7"
+    }
+  }
+}

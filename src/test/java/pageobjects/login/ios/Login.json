@@ -1,0 +1,77 @@
+[
+    {
+      "name": "membernumber",
+      "type": "accessibility",
+      "identifier": "Membership number"
+    },
+    {
+      "name": "lastname",
+      "type": "accessibility",
+      "identifier": "Last name"
+    },
+    {
+      "name": "pin",
+      "type": "accessibility",
+      "identifier": "PIN"
+    },
+    {
+      "name": "loginbtn",
+      "type": "accessibility",
+      "identifier": "LOG IN"
+    },
+    {
+      "name": "forgot",
+      "type": "accessibility",
+      "identifier": "Forgotten your PIN?"
+    },
+    {
+      "name": "join",
+      "type": "accessibility",
+      "identifier": "ffSIgnUp"
+    },
+    {
+      "name":"TAC",
+      "type":"accessibility",
+      "identifier":"com.qantas.fs.stub:id/btn_agree"
+    },
+    {
+      "name":"num1",
+      "type":"accessibility",
+      "identifier":"1"
+    },
+  {
+    "name":"num6",
+    "type":"accessibility",
+    "identifier":"6"
+  },
+  {
+    "name":"num5",
+    "type":"accessibility",
+    "identifier":"5"
+  },
+  {
+    "name":"num4",
+    "type":"accessibility",
+    "identifier":"4"
+  },
+    {
+      "name":"MMN",
+      "type":"accessibility",
+      "identifier":"Mother's maiden name"
+    },
+    {
+      "name":"DOB",
+      "type":"accessibility",
+      "identifier":"Date of birth"
+    },
+  {
+    "name":"Postcode",
+    "type":"accessibility",
+    "identifier":"Postcode"
+  },
+  {
+    "name":"accept",
+    "type":"accessibility",
+    "identifier":"ACCEPT"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "name": "points",
+      "type": "accessibility",
+      "identifier": "Points"
+    },
+    {
+      "name": "more",
+      "type": "xpath",
+      "identifier": "//XCUIElementTypeApplication[@name='DEV Qantas Money']/XCUIElementTypeWindow[1]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeTabBar/XCUIElementTypeButton[3]"
+    },
+    {
+      "name":"greeting",
+      "type":"accessibility",
+      "identifier":"Good afternoon, Richard"
+    }
+  ]
+}

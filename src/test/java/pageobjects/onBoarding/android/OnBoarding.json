@@ -1,0 +1,22 @@
+[
+  {
+    "name": "loginBtn",
+    "type": "id",
+    "identifier": "com.qantas.fs.stub:id/btn_log_in"
+  },
+  {
+    "name": "apply",
+    "type": "id",
+    "identifier": "com.qantas.fs.stub:id/btn_apply_for_products"
+  },
+  {
+    "name": "welcome",
+    "type": "id",
+    "identifier": "com.qantas.fs.stub:id/title"
+  },
+  {
+    "name": "indicator",
+    "type": "id",
+    "identifier": "com.qantas.fs.stub:id/indicator"
+  }
+]

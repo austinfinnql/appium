@@ -1,0 +1,52 @@
+[
+  {
+    "name": "yesonalert",
+    "type": "accessibility",
+    "identifier": "Yes"
+  },
+  {
+    "name": "noonalert",
+    "type": "accessibility",
+    "identifier": "No"
+  },
+  {
+    "name": "OK",
+    "type": "accessibility",
+    "identifier": "OK"
+  },
+  {
+    "name": "appsettings",
+    "type": "accessibility",
+    "identifier": "App settings"
+  },
+  {
+    "name": "uat",
+    "type": "accessibility",
+    "identifier": "UAT"
+  },
+  {
+    "name": "stubs",
+    "type": "accessibility",
+    "identifier": "Stubs"
+  },
+  {
+    "name": "numpad1",
+    "type": "xpath",
+    "identifier": "1"
+  },
+  {
+    "name": "numpad4",
+    "type": "xpath",
+    "identifier": "4"
+  },
+  {
+    "name": "numpad5",
+    "type": "xpath",
+    "identifier": "5"
+  },
+  {
+    "name": "numpad6",
+    "type": "xpath",
+    "identifier": "6"
+  }
+]
